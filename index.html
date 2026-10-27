@@ -1,43 +1,14 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<meta name="theme-color" content="#070a10"><title>CAR RACING X — Neon Underground</title>
-<link rel="stylesheet" href="style.css"><script src="script.js" defer></script>
-</head>
-<body>
-<div class="scanlines"></div>
-<header class="topbar"><a class="brand" href="#"><span>CAR</span> RACING <b>X</b></a><div class="online"><i></i> NEON UNDERGROUND</div><button id="soundBtn" class="iconbtn" aria-label="Toggle sound">♫ SOUND ON</button></header>
-<main class="shell">
-<section class="intro"><div class="eyebrow">MIDNIGHT CIRCUIT / SEASON 01</div><h1>DRIVE <span>BEYOND.</span></h1><p>Choose your machine. Pick a challenge. Own the neon.</p></section>
-<section class="game-layout">
-<aside class="sidepanel">
-<div class="panel-title">01 / YOUR GARAGE <span>6 CARS</span></div>
-<div id="carList" class="car-list">
-<button class="car-choice selected" data-car="0"><span class="car-icon cyan">▰</span><span><b>PHANTOM GT</b><small>Balanced • 180 km/h</small></span><strong>01</strong></button>
-<button class="car-choice" data-car="1"><span class="car-icon red">▰</span><span><b>SCARLET RX</b><small>Drift • 170 km/h</small></span><strong>02</strong></button>
-<button class="car-choice" data-car="2"><span class="car-icon purple">▰</span><span><b>VIOLET R</b><small>Speed • 205 km/h</small></span><strong>03</strong></button>
-<button class="car-choice" data-car="3"><span class="car-icon lime">▰</span><span><b>TOXIC GT</b><small>Grip • 190 km/h</small></span><strong>04</strong></button>
-<button class="car-choice" data-car="4"><span class="car-icon gold">▰</span><span><b>GOLDEN ACE</b><small>Boost • 195 km/h</small></span><strong>05</strong></button>
-<button class="car-choice" data-car="5"><span class="car-icon white">▰</span><span><b>GHOST SPEC</b><small>Elite • 200 km/h</small></span><strong>06</strong></button>
-</div>
-<div class="panel-title modes-title">02 / GAME MODE</div>
-<div class="mode-list">
-<button class="mode-choice active" data-mode="race"><span>🏁</span><span><b>NEON SPRINT</b><small>Survive traffic. Go far.</small></span></button>
-<button class="mode-choice" data-mode="drift"><span>💨</span><span><b>DRIFT ATTACK</b><small>Slide for style points.</small></span></button>
-<button class="mode-choice" data-mode="time"><span>⏱️</span><span><b>TIME TRIAL</b><small>Score before time runs out.</small></span></button>
-</div>
-<button id="startBtn" class="primary start">▶ START ENGINE</button>
-<div class="bestline">PERSONAL BEST <b id="bestScore">0</b></div>
-</aside>
-<section class="play-area">
-<div class="hud"><div><small>SCORE</small><strong id="score">000000</strong></div><div><small>SPEED</small><strong><span id="speed">0</span><em> KM/H</em></strong></div><div><small>BEST STREAK</small><strong id="streak">x1</strong></div><div><small>TIME / DISTANCE</small><strong id="timer">0:00</strong></div></div>
-<div class="canvas-wrap"><canvas id="game" aria-label="Playable top-down car racing game"></canvas><div id="overlay" class="overlay"><div class="overlay-kicker">READY, DRIVER?</div><div class="overlay-title">THE STREETS<br><span>ARE YOURS.</span></div><p>Use ← → or A / D to steer. Hold ↑ to accelerate, ↓ to brake. Dodge traffic and collect energy.</p><button id="overlayStart" class="primary">START RACE ↗</button></div><div id="countdown" class="countdown hidden"></div><div class="canvas-hint">← → STEER &nbsp; • &nbsp; ↑ BOOST &nbsp; • &nbsp; P PAUSE</div></div>
-<div class="game-controls"><button data-control="left" aria-label="Steer left">◀</button><button data-control="brake" aria-label="Brake">▼</button><button data-control="boost" class="boost-control" aria-label="Boost">⚡ BOOST</button><button data-control="right" aria-label="Steer right">▶</button></div>
-<div class="under-hud"><div><span class="dot"></span> <span id="gameState">ENGINE OFFLINE</span></div><div>LEVEL <b id="level">01</b> <span class="sep">/</span> <span id="message">PICK A MODE AND HIT START</span></div></div>
-</section>
-</section>
-<section class="bottom-cards"><article><span>01 / DRIVE</span><h3>LEARN THE LINE.</h3><p>Weave between traffic and stay on the road. Every close call makes your score climb.</p></article><article><span>02 / BOOST</span><h3>HIT THE AFTERBURNER.</h3><p>Collect glowing energy cells, then tap boost to surge forward and multiply your score.</p></article><article><span>03 / MASTER</span><h3>CHASE YOUR BEST.</h3><p>Beat your high score, try every car, and see how long you can survive.</p></article></section>
-<footer>CAR RACING X <span>BUILT FOR THE LOVE OF SPEED</span><span>DRIVE SMART. CHASE THE GLOW.</span></footer>
-</main>
-</body></html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><meta name="theme-color" content="#050812"><title>CAR RACING X — 3D Night Run</title><link rel="stylesheet" href="style.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script><script src="script.js" defer></script></head>
+<body><div class="grid-bg"></div><header><a class="logo" href="#">CAR<span>RACING</span><b>X</b></a><div class="live"><i></i> 3D NIGHT RUN</div><button id="soundBtn" class="sound">♫ SOUND ON</button></header>
+<main><section class="hero"><div class="eyebrow">THE CITY NEVER SLEEPS</div><h1>OWN THE <span>NIGHT.</span></h1><p>A real-time 3D street racer. Pick your ride, hit the nitro, and leave the city in your rear-view.</p></section>
+<section class="layout"><aside class="garage panel"><div class="section-head"><span>01 / GARAGE</span><b>CHOOSE YOUR RIDE</b></div><div class="cars" id="carList">
+<button class="car-choice selected" data-car="0"><i style="--c:#36f5ff"></i><span><b>PHANTOM GT</b><small>Balanced • All-rounder</small></span><em>01</em></button>
+<button class="car-choice" data-car="1"><i style="--c:#ff426d"></i><span><b>SCARLET RX</b><small>Drift • High grip</small></span><em>02</em></button>
+<button class="car-choice" data-car="2"><i style="--c:#b58aff"></i><span><b>VIOLET R</b><small>Speed • Lightweight</small></span><em>03</em></button>
+<button class="car-choice" data-car="3"><i style="--c:#b9ff46"></i><span><b>TOXIC GT</b><small>Power • Nitro boost</small></span><em>04</em></button>
+<button class="car-choice" data-car="4"><i style="--c:#ffcc60"></i><span><b>GOLDEN ACE</b><small>Luxury • Smooth</small></span><em>05</em></button>
+<button class="car-choice" data-car="5"><i style="--c:#f2f5ff"></i><span><b>GHOST SPEC</b><small>Elite • Fast launch</small></span><em>06</em></button></div>
+<div class="section-head mode-head"><span>02 / MODE</span><b>CHOOSE A CHALLENGE</b></div><div class="modes"><button class="mode-choice active" data-mode="race"><strong>🏁</strong><span><b>ENDLESS RUN</b><small>Survive. Score. Repeat.</small></span></button><button class="mode-choice" data-mode="drift"><strong>💨</strong><span><b>DRIFT ZONE</b><small>Slide for bonus points.</small></span></button><button class="mode-choice" data-mode="time"><strong>⏱</strong><span><b>TIME ATTACK</b><small>Beat the 60 second clock.</small></span></button></div><button id="startBtn" class="start">▶ START ENGINE</button><div class="record">YOUR BEST <b id="bestScore">0</b></div></aside>
+<section class="race panel"><div class="hud"><div><small>SCORE</small><b id="score">000000</b></div><div><small>SPEED</small><b><span id="speed">0</span><small> KM/H</small></b></div><div><small>NITRO</small><div class="meter"><i id="nitroBar"></i></div></div><div><small>TIME</small><b id="timer">0:00</b></div></div><div class="viewport" id="viewport"><div class="scene-label">NEON CITY <span>SECTOR 09</span></div><div id="threeRoot"></div><div class="start-screen" id="overlay"><div class="ready">DRIVER, ARE YOU READY?</div><h2>START YOUR<br><span>LEGEND.</span></h2><p>Steer to dodge traffic. Collect neon energy. Tap BOOST to fly.</p><button id="overlayStart">ENTER THE RACE ↗</button></div><div class="countdown hidden" id="countdown">3</div><div class="toast" id="toast">NITRO READY</div><div class="vignette"></div></div><div class="touch-controls"><button data-control="left" aria-label="Steer left">◀</button><button data-control="brake" aria-label="Brake">▼</button><button data-control="boost" class="boost">⚡ NITRO</button><button data-control="right" aria-label="Steer right">▶</button></div><div class="status"><span><i></i><b id="gameState">ENGINE OFF</b></span><span>LEVEL <b id="level">01</b>　•　<b id="message">CHOOSE YOUR CAR</b></span></div></section></section>
+<section class="features"><article><span>01 / SPEED</span><h3>FEEL THE TURBO.</h3><p>Hit nitro, watch the world streak past, and race through a living neon city.</p></article><article><span>02 / SKILL</span><h3>MISS BY INCHES.</h3><p>Dodge traffic, collect energy and build a combo for massive scores.</p></article><article><span>03 / REPLAY</span><h3>BEAT YOUR BEST.</h3><p>Three different challenges, six rides, and a best score saved on your device.</p></article></section><footer>CAR RACING X <span>NO BRAKES. NO LIMITS. JUST YOU.</span></footer></main></body></html>
