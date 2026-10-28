@@ -1,6 +1,28 @@
 (()=>{'use strict';
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const root=$('#threeRoot'),ui={score:$('#score'),speed:$('#speed'),timer:$('#timer'),best:$('#bestScore'),nitro:$('#nitroBar'),state:$('#gameState'),message:$('#message'),level:$('#level'),overlay:$('#overlay'),countdown:$('#countdown'),toast:$('#toast'),sound:$('#soundBtn')};
+let startupErrorShown=false;
+function showStartupError(err){
+  console.error('CAR RACING X error:',err);
+  if(startupErrorShown)return;
+  startupErrorShown=true;
+  const overlay=$('#overlay');
+  if(overlay){
+    overlay.classList.remove('gone');
+    const ready=overlay.querySelector('.ready'),title=overlay.querySelector('h2'),p=overlay.querySelector('p');
+    if(ready)ready.textContent='STARTUP ERROR';
+    if(title)title.innerHTML='ENGINE<br><span>NEEDS A FIX.</span>';
+    if(p)p.textContent='The game hit an error. Refresh this page and try again. '+(err&&err.message?err.message:'');
+  }
+  if(ui.state)ui.state.textContent='GAME ERROR';
+  if(ui.message)ui.message.textContent='PLEASE REFRESH';
+}
+window.addEventListener('error',e=>showStartupError(e.error||new Error(e.message||'Unknown error')));
+window.addEventListener('unhandledrejection',e=>showStartupError(e.reason||new Error('Startup failed')));
+const earlyStart=()=>{try{start()}catch(err){showStartupError(err)}};
+$('#overlayStart')?.addEventListener('click',earlyStart);
+$('#startBtn')?.addEventListener('click',earlyStart);
+
 const carNames=['PHANTOM GT','SCARLET RX','VIOLET R','TOXIC GT','GOLDEN ACE','GHOST SPEC','APEX F1','THUNDER RS','NIGHTFALL','TURBO NOVA','DRAGON GT','STORM X','BLAZE R','SHADOW V12','NEON VIPER','HYPERION','RAPTOR GT','CYBER S','FALCON XR','ORBIT Z'];const palette=[0x36f5ff,0xff426d,0xb58aff,0xb9ff46,0xffcc60,0xf2f5ff,0xff782e,0x4d7dff,0xff3bf5,0x49ffc2,0xff2345,0x9fa8b7];const cars=Array.from({length:120},(_,i)=>({name:carNames[i%carNames.length]+(i>=carNames.length?' '+String(Math.floor(i/carNames.length)+1):''),color:palette[i%palette.length],max:175+(i*17%55),handling:.82+(i*7%60)/100,boost:.9+(i*11%35)/100}));
 let scene,camera,renderer,clock,player,policeCar=null,policeRed=null,policeBlue=null,policeFleet=[],policeRoad=[],policeGap=12,wanted=25,selected=0,mode='race',track='city',running=false,paused=false,soundOn=true,score=0,best=0,speed=0,nitro=100,elapsed=0,level=1,damage=0,combo=1,comboClock=0,roadMove=0,spawnClock=0,pickupClock=0,steer=0,drifting=0,flash=0,objects=[],particles=[],keys={},controls={},audio=null,engineOsc=null,engineGain=null,engineFilter=null,shake=0,raf=0,lifetimePoints=0,raceStartPoints=0,coins=0,unlocked=new Set([0]),lastCoinMilestone=0,energy=0,dailyCoins=0,badges=new Set(),dailyClaimed='';
 try{dailyCoins=Number(localStorage.getItem('crx-daily-coins')||0);if(localStorage.getItem('crx-daily-date')!==new Date().toISOString().slice(0,10)){dailyCoins=0;localStorage.setItem('crx-daily-date',new Date().toISOString().slice(0,10));localStorage.setItem('crx-daily-coins','0')}badges=new Set(JSON.parse(localStorage.getItem('crx-badges')||'[]'));dailyClaimed=localStorage.getItem('crx-daily-claim')||''}catch(e){}
