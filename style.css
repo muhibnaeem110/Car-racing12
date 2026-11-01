@@ -87,3 +87,5 @@ header .top-wallet{display:flex!important;flex-shrink:0;visibility:visible;opaci
 .mp-rival-label{display:block;white-space:nowrap;background:#071321dd;color:#fff;border:1px solid var(--rival-color);border-radius:5px;padding:3px 5px;font-size:9px;font-weight:900}
 @keyframes mp-bob{to{margin-bottom:5px}}
 @media(max-width:560px){.mp-fields{grid-template-columns:1fr}.mp-server-field{grid-column:auto}}
+
+.multiplayer-panel{grid-column:1/-1;width:100%;box-sizing:border-box}
