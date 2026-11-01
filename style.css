@@ -70,3 +70,20 @@ header .top-wallet{display:flex!important;flex-shrink:0;visibility:visible;opaci
  .modes{grid-template-columns:1fr}
  .modes .music-mode-panel .soundcloud-players{grid-template-columns:1fr}
 }
+
+
+/* Online multiplayer */
+.multiplayer-panel{margin:18px 0;padding:16px;border:1px solid rgba(54,245,255,.35);border-radius:14px;background:linear-gradient(135deg,rgba(12,30,48,.96),rgba(7,12,25,.96));}
+.multiplayer-panel .mp-title{font-weight:900;letter-spacing:.12em;color:#36f5ff;font-size:13px;margin-bottom:10px}
+.mp-fields{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mp-fields input{min-width:0;width:100%;padding:11px 10px;border:1px solid rgba(120,170,200,.35);border-radius:8px;background:#080f1d;color:#fff;font:inherit}
+.mp-server-field{grid-column:1/-1}
+.mp-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:9px}
+.mp-actions button{padding:11px 8px;border:1px solid #36f5ff;border-radius:8px;background:#0b2634;color:#eaffff;font-weight:900}
+.mp-actions button:disabled{opacity:.4}
+#mpStatus{font-size:12px;color:#a9c6d9;margin:10px 0 0;min-height:18px}
+.mp-rival{position:absolute;z-index:4;bottom:12%;transform:translateX(-50%);width:76px;text-align:center;pointer-events:none;filter:drop-shadow(0 0 12px var(--rival-color));animation:mp-bob .55s ease-in-out infinite alternate}
+.mp-rival b{display:block;font-size:42px;transform:scaleX(-1);-webkit-text-stroke:1px var(--rival-color)}
+.mp-rival-label{display:block;white-space:nowrap;background:#071321dd;color:#fff;border:1px solid var(--rival-color);border-radius:5px;padding:3px 5px;font-size:9px;font-weight:900}
+@keyframes mp-bob{to{margin-bottom:5px}}
+@media(max-width:560px){.mp-fields{grid-template-columns:1fr}.mp-server-field{grid-column:auto}}
